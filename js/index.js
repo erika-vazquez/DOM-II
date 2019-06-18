@@ -13,12 +13,20 @@ select
 dblclick
 */
 //Using the click event listener on the first Sign Me Up! button.
-//When clicked, an alert pops up with a message.
-let button = document.querySelector('.btn');
+//When clicked, it console logs a message.
+const button = document.querySelector('.btn');
 
-button.addEventListener("click", function () {
-    alert("You've clicked me!");
-});
+button.addEventListener("click", (e) => {
+    console.log("div clicked");
+})
+// ADDED CONSOLE LOG FOR WHEN FUN IN THE SUNS DIV IS CLICKED 
+const signUpButton1 = document.querySelector(".destination");
+// STOPPING THE BUBBLING OF DIV CLICKED CONSOLE LOG
+signUpButton1.addEventListener('click', (e) => {
+    console.log("signup 1 clicked");
+    e.stopPropagation();
+  })
+
 
 //using mouseover event listener where when hover over the logo, the 
 //text color changes to red for 3 seconds
@@ -56,8 +64,9 @@ navItem[1].addEventListener("copy", () => {
 
 //used the scroll event listener so everytime you scroll,
 //an alert pops up (its pretty annoying)
-window.addEventListener("scroll", () => {
-    alert("scroll, scroll, scroll");
+window.addEventListener("scroll", function alertMeOnce() {
+    alert("scroll, scroll, scroll")
+    window.removeEventListener('scroll', alertMeOnce)
 });
 
 //used the contextmenu so when the bus image is right clicked,
@@ -83,3 +92,13 @@ function zoom(event) {
   }
   
   el.onwheel = zoom;
+
+  //used keydown event listener to make the header section dissapear when 
+  //a keyboard key is pressed
+  const header = document.querySelector('header');
+  const body = document.querySelector('body');
+  body.addEventListener("keydown", () => header.style.opacity = "0");
+
+
+  
+  

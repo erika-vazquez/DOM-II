@@ -58,7 +58,8 @@ window.addEventListener("resize", () => {
 //used a copy event listener so when the second item in the nav bar is copied,
 //the text will turn purple
 let navItem = document.querySelectorAll("nav a");
-navItem[1].addEventListener("copy", () => {
+navItem[1].addEventListener("copy", (e) => {
+    e.preventDefault(); //prevent links from reloading page
     navItem[1].style.color = "purple";
 });
 
@@ -90,7 +91,6 @@ function zoom(event) {
     // Apply scale transform
     el.style.transform = `scale(${scale})`;
   }
-  
   el.onwheel = zoom;
 
   //used keydown event listener to make the header section dissapear when 
@@ -99,6 +99,11 @@ function zoom(event) {
   const body = document.querySelector('body');
   body.addEventListener("keydown", () => header.style.opacity = "0");
 
+//used load event listener to pop up an alert message
+/*window.addEventListener("load", () => 
+alert("Finished Loading!")
+);
+*/
 
   
   

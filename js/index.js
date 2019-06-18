@@ -14,8 +14,19 @@ dblclick
 */
 //Using the click event listener on the first Sign Me Up! button.
 //When clicked, an alert pops up with a message.
-    const button = document.querySelector('.btn');
+let button = document.querySelector('.btn');
 
-    button.addEventListener("click", function(){
+button.addEventListener("click", function () {
     alert("You've clicked me!");
 });
+
+//When hover over the logo, the text color changes to red for 3 seconds
+let logo = document.querySelector(".logo-heading");
+
+logoHeading.addEventListener("mouseover", () => {
+    document.body.style.color = "red";
+    
+    setTimeout(function() {
+        document.body.style.color = "";
+      }, 3000);//3 seconds
+    }, false );
